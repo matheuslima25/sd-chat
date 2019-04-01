@@ -1,0 +1,10 @@
+{
+  "name": "SD Mensseger",
+  "description": "Running a simple chat on Heroku",
+  "repository": "",
+  "keywords": [""],
+  "scripts": {
+    "postdeploy": "python manage.py migrate"
+  },
+  "addons": ["heroku-postgresql", "heroku-redis"]
+}
