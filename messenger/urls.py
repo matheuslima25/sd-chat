@@ -1,9 +1,10 @@
 from django.urls import path, re_path
-from .views import index, room
+from messenger import views
+from .views import room
 
 app_name = 'messenger'
 
 urlpatterns = [
-    path('', index, name='index'),
+    path('', views.HomeView.as_view()),
     re_path(r'^(?P<room_name>[^/]+)/$', room, name='room'),
 ]

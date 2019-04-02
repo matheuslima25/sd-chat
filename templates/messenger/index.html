@@ -1,26 +1,50 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
-    <meta charset="utf-8"/>
-    <title>Chat Rooms</title>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <link rel="icon" href="{% static 'sd-messenger-logo.png'%}" type="image/png">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}Entrar | SD - Chat{% endblock %}</title>
+    <script src="{% static 'bootstrap/js/hoy31rg.js' %}"></script>
+    <script>try {
+        Typekit.load({async: true});
+    } catch (e) {}</script>
+    <link href='https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,600,700,300' rel='stylesheet'
+          type='text/css'>
+    <link rel='stylesheet prefetch' href='https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css'>
+    <link rel='stylesheet prefetch'
+          href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.2/css/font-awesome.min.css'>
+    <link href="{% static 'bootstrap/css/4.0/bootstrap.min.css' %}" rel="stylesheet" id="bootstrap-css">
+    <script src="{% static 'bootstrap/js/4.0/bootstrap.min.js' %}"></script>
+    <script src="{% static 'bootstrap/js/4.0/jquery.min.js' %}"></script>
+    <link href="{% static 'bootstrap/css/3.0/bootstrap.min.css' %}" rel="stylesheet" id="bootstrap-css">
+    <script src="{% static 'bootstrap/js/3.0/bootstrap.min.js' %}"></script>
+    <script src="{% static 'bootstrap/js/3.0/jquery-1.11.1.min.js' %}"></script>
+    <link rel="stylesheet" href="{% static 'bootstrap/css/style.css' %}"/>
+
 </head>
 <body>
-    What chat room would you like to enter?<br/>
-    <input id="room-name-input" type="text" size="100"/><br/>
-    <input id="room-name-submit" type="button" value="Enter"/>
-
+{% block body %}
+    <form>
+    <div class="text-center mb-4">
+        <img class="mb-4" src="{% static 'sd-messenger-logo.png'%}" alt="" width="150" height="150">
+    </div>
+    <div align="center">
+    <input id="room-name-submit" type="button" class="btn btn-secondary btn-lg" value="Entrar" style="background-color: #606062"/>
+    <p class="mt-5 mb-3 text-muted text-center">Copyright &copy;{% now "Y" %};. All rights reserved.
+    </p>
+    </div>
+    </form>
     <script>
-        document.querySelector('#room-name-input').focus();
-        document.querySelector('#room-name-input').onkeyup = function(e) {
-            if (e.keyCode === 13) {  // enter, return
-                document.querySelector('#room-name-submit').click();
-            }
-        };
-
         document.querySelector('#room-name-submit').onclick = function(e) {
-            var roomName = document.querySelector('#room-name-input').value;
-            window.location.pathname = '/chat/' + roomName + '/';
+            window.location.pathname = '/' + 'chat' + '/';
         };
     </script>
+<script src="{% static 'bootstrap/js/main.js' %}"></script>
+{% block js %}{% endblock %}
+{% endblock %}
 </body>
 </html>
